@@ -21,6 +21,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         :root {
             --primary-dark: #0a1628;
             --primary-blue: #0d2b5e;
@@ -47,3 +48,1744 @@
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Outfit', 'Inter', sans-serif;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 10px 0;
+            border-bottom: 2px solid var(--accent-orange);
+            position: relative;
+            z-index: 100;
+        }
+
+        .topbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topbar-badge {
+            background: var(--accent-orange);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .topbar-text {
+            color: var(--gray-200);
+            font-size: 0.85rem;
+        }
+
+        .topbar-text strong {
+            color: var(--accent-yellow);
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .topbar-phone {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .topbar-phone:hover {
+            color: var(--accent-orange-light);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            padding: 8px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-gold) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(255,106,0,0.3);
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-logo-text span:first-child {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            line-height: 1.1;
+        }
+
+        .nav-logo-text span:last-child {
+            font-size: 0.65rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #e05500 100%);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(255,106,0,0.35);
+            transition: var(--transition);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,106,0,0.45);
+            color: var(--white) !important;
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .nav-hamburger span {
+            width: 26px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SLIDER ===== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--primary-dark);
+        }
+
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 22, 40, 0.5) 0%,
+                rgba(10, 22, 40, 0.65) 50%,
+                rgba(10, 22, 40, 0.85) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 106, 0, 0.2);
+            border: 1px solid rgba(255, 106, 0, 0.5);
+            color: var(--accent-orange-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: liveDot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes liveDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-title .highlight {
+            color: var(--accent-orange);
+            position: relative;
+        }
+
+        .hero-title .highlight-yellow {
+            color: var(--accent-yellow);
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: var(--accent-yellow);
+            font-weight: 800;
+            margin-bottom: 8px;
+            animation: fadeInUp 0.8s ease-out 0.35s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.65s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #e05500 100%);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            box-shadow: 0 6px 25px rgba(255,106,0,0.4);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: pulseCall 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseCall {
+            0% { box-shadow: 0 6px 25px rgba(255,106,0,0.4); transform: scale(1); }
+            50% { box-shadow: 0 6px 40px rgba(255,106,0,0.7), 0 0 0 8px rgba(255,106,0,0.15); transform: scale(1.03); }
+            100% { box-shadow: 0 6px 25px rgba(255,106,0,0.4); transform: scale(1); }
+        }
+
+        .btn-call:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 35px rgba(255,106,0,0.55);
+        }
+
+        .btn-call .phone-ring {
+            animation: phoneRing 1s ease-in-out infinite;
+            display: inline-block;
+            font-size: 1.3rem;
+        }
+
+        @keyframes phoneRing {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(15deg); }
+            20% { transform: rotate(-15deg); }
+            30% { transform: rotate(10deg); }
+            40% { transform: rotate(-10deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--whatsapp-green) 0%, var(--whatsapp-dark) 100%);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            box-shadow: 0 6px 25px rgba(37,211,102,0.3);
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 35px rgba(37,211,102,0.45);
+        }
+
+        .btn-whatsapp svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        /* Slider Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: 2px solid rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: scale(1.2);
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30L0 0h60L30 30zm0 0L0 60h60L30 30z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px;
+            width: 1px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--accent-orange);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,106,0,0.08);
+            color: var(--accent-orange);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-title .accent {
+            color: var(--accent-orange);
+        }
+
+        .section-desc {
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-gold));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, rgba(255,106,0,0.08), rgba(255,106,0,0.15));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card:hover .service-icon span {
+            filter: brightness(100);
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .why-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .why-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-mid));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(13,43,94,0.25);
+            transition: var(--transition);
+        }
+
+        .why-card:hover .why-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(13,43,94,0.35);
+        }
+
+        .why-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* ===== REVIEWS ===== */
+        .reviews {
+            background: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .review-card .quote-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            opacity: 0.2;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 12px;
+        }
+
+        .review-stars span {
+            color: #ffc107;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            font-size: 0.92rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .review-author-info h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .review-author-info span {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-orange);
+            box-shadow: 0 4px 15px rgba(255,106,0,0.1);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 15px;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            flex: 1;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            color: var(--gray-700);
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--accent-orange);
+            color: var(--white);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 20px;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 50%, #1a3f7a 100%);
+            padding: 70px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,106,0,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(255,193,7,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-section .accent {
+            color: var(--accent-orange);
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--primary-dark);
+            padding: 50px 0 20px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-orange);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.55);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        /* ===== FIXED MOBILE BUTTONS ===== */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+        }
+
+        .fixed-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .fixed-btn-call {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #e05500 100%);
+        }
+
+        .fixed-btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green) 0%, var(--whatsapp-dark) 100%);
+        }
+
+        .fixed-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ===== FLOATING WA BUTTON (DESKTOP) ===== */
+        .floating-wa {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: floatBounce 3s ease-in-out infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+        }
+
+        .floating-wa svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar .container {
+                justify-content: center;
+                text-align: center;
+            }
+            .topbar-right { display: none; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: var(--shadow-lg);
+                border-top: 2px solid var(--accent-orange);
+            }
+
+            .nav-links.active { display: flex; }
+            .nav-hamburger { display: flex; }
+
+            .hero-slider { height: 500px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+            .hero-desc { font-size: 0.9rem; }
+
+            .btn-call, .btn-whatsapp {
+                padding: 14px 24px;
+                font-size: 0.95rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .stat-item:nth-child(2)::after { display: none; }
+            .stat-number { font-size: 1.8rem; }
+
+            .section { padding: 50px 0; }
+            .section-title { font-size: 1.6rem; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            body { padding-bottom: 56px; }
+
+            .floating-wa {
+                bottom: 76px;
+                right: 16px;
+                width: 52px;
+                height: 52px;
+            }
+            .floating-wa svg { width: 26px; height: 26px; }
+
+            .cta-section h2 { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-slider { height: 420px; }
+            .hero-title { font-size: 1.5rem; }
+            .hero-subtitle { font-size: 0.95rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-call, .btn-whatsapp { width: 100%; justify-content: center; }
+            .section-title { font-size: 1.35rem; }
+        }
+
+        @media (min-width: 769px) {
+            .fixed-buttons { display: none; }
+        }
+
+        /* Delay for service card animations */
+        .service-card:nth-child(1) { transition-delay: 0.05s; }
+        .service-card:nth-child(2) { transition-delay: 0.1s; }
+        .service-card:nth-child(3) { transition-delay: 0.15s; }
+        .service-card:nth-child(4) { transition-delay: 0.2s; }
+        .service-card:nth-child(5) { transition-delay: 0.25s; }
+        .service-card:nth-child(6) { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOPBAR ===== -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-left">
+                <span class="topbar-badge">7/24 Açık</span>
+                <span class="topbar-text">İstanbul'un Tüm Bölgelerine <strong>Acil Elektrikçi</strong></span>
+            </div>
+            <div class="topbar-right">
+                <a href="tel:05468172735" class="topbar-phone">
+                    📞 <strong>0546 817 27 35</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">⚡</div>
+                <div class="nav-logo-text">
+                    <span>Acil Elektrikçi</span>
+                    <span>İstanbul 7/24 Servis</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#neden-biz">Neden Biz?</a></li>
+                <li><a href="#yorumlar">Müşteri Yorumları</a></li>
+                <li><a href="#sss">SSS</a></li>
+                <li><a href="tel:05468172735" class="nav-cta">📞 Hemen Ara</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger" aria-label="Menüyü Aç">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SLIDER ===== -->
+    <section class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+                <img src="banner1.jpg" alt="İstanbul Acil Elektrikçi Servisi - 7/24 Hizmet" loading="eager">
+            </div>
+            <div class="hero-slide">
+                <img src="banner2.jpg" alt="İstanbul Elektrik Arıza Servisi - Hızlı Çözüm" loading="lazy">
+            </div>
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Şu An Aktif — 7/24 Hizmetinizdeyiz
+                </div>
+                <h1 class="hero-title">
+                    İstanbul Tüm Bölgelerine <span class="highlight">Elektrikçi</span><br>
+                    7/24 Acil ve Hızlı Servis
+                </h1>
+                <p class="hero-subtitle">⚡ 15 Dakikada Kapınızda!</p>
+                <p class="hero-desc">Ev, iş yeri ve fabrika elektrik arızalarınıza profesyonel, garantili ve uygun fiyatlı çözümler.</p>
+                <div class="hero-buttons">
+                    <a href="tel:05468172735" class="btn-call" id="heroCallBtn">
+                        <span class="phone-ring">📞</span>
+                        Hemen Ara: 0546 817 27 35
+                    </a>
+                    <a href="https://wa.me/905468172735" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp Destek
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Yıllık Deneyim</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="25000">0</div>
+                    <div class="stat-label">Mutlu Müşteri</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="30">0</div>
+                    <div class="stat-label">Dakikada Kapınızda</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">%100 Müşteri Memnuniyeti</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HİZMETLER ===== -->
+    <section class="section services" id="hizmetler">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">⚡ Profesyonel Hizmetler</div>
+                <h2 class="section-title">Elektrik <span class="accent">Hizmetlerimiz</span></h2>
+                <p class="section-desc">Ev, iş yeri ve fabrika elektrik ihtiyaçlarınız için kapsamlı ve profesyonel çözümler sunuyoruz.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><span>🏠</span></div>
+                    <h3>Ev, İş Yeri & Fabrika Elektrik Çözümleri</h3>
+                    <p>Konut, ofis, mağaza ve endüstriyel tesisler için komple elektrik tesisat, bakım ve onarım hizmetleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><span>🔌</span></div>
+                    <h3>Sigorta Arızaları & Şalter Değişimi</h3>
+                    <p>Sigorta atan, şalter arızası, kaçak akım rölesi montajı ve pano revizyonu gibi tüm arıza çözümleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><span>💡</span></div>
+                    <h3>LED Aydınlatma & Avize Montajı</h3>
+                    <p>Modern LED aydınlatma, şerit LED uygulamaları, avize montajı ve dekoratif aydınlatma çözümleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><span>🌐</span></div>
+                    <h3>İnternet Kablosu & Zayıf Akım</h3>
+                    <p>İnternet kablosu çekimi, ağ altyapısı kurulumu, arıza tespiti ve zayıf akım tesisatı hizmetleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><span>🔧</span></div>
+                    <h3>Korniş, Priz & Anahtar Montajı</h3>
+                    <p>Korniş aydınlatma, priz ve anahtar değişimi, topraklama ve elektrik hattı yenileme işlemleri.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><span>🚨</span></div>
+                    <h3>Acil Elektrik Arıza Servisi</h3>
+                    <p>7/24 acil elektrik arıza müdahalesi. Kısa devre, elektrik kesintisi ve yangın riski durumlarında hızlı çözüm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEDEN BİZ ===== -->
+    <section class="section why-us" id="neden-biz">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">✅ Güven & Kalite</div>
+                <h2 class="section-title">Neden <span class="accent">Bizi Seçmelisiniz?</span></h2>
+                <p class="section-desc">Müşteri memnuniyeti odaklı, güvenilir ve profesyonel elektrik hizmeti.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card animate-on-scroll">
+                    <div class="why-icon">🛡️</div>
+                    <h3>%100 Garantili İşçilik</h3>
+                    <p>Tüm işlerimiz garantili. Arıza tekrarında ücretsiz servis hizmeti sağlıyoruz.</p>
+                </div>
+                <div class="why-card animate-on-scroll">
+                    <div class="why-icon">💳</div>
+                    <h3>Kredi Kartı ile Kapıda Ödeme</h3>
+                    <p>Nakit veya kredi kartıyla kapıda ödeme kolaylığı. Taksit seçenekleri mevcuttur.</p>
+                </div>
+                <div class="why-card animate-on-scroll">
+                    <div class="why-icon">👨‍🔧</div>
+                    <h3>Usta & Yetkili Ekip</h3>
+                    <p>Deneyimli, sertifikalı ve uzman elektrik teknisyenlerimizle güvenli hizmet.</p>
+                </div>
+                <div class="why-card animate-on-scroll">
+                    <div class="why-icon">🚀</div>
+                    <h3>30 Dk Gezici Servis</h3>
+                    <p>İstanbul'un tüm ilçelerine 30 dakika içinde ulaşan gezici servis araçlarımız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MÜŞTERİ YORUMLARI ===== -->
+    <section class="section reviews" id="yorumlar">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">⭐ Müşteri Yorumları</div>
+                <h2 class="section-title">Müşterilerimiz <span class="accent">Ne Diyor?</span></h2>
+                <p class="section-desc">Binlerce memnun müşterimizin deneyimlerini keşfedin.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card animate-on-scroll">
+                    <div class="quote-icon">"</div>
+                    <div class="review-stars">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="review-text">"Gece 2'de sigorta attı, aradıktan 20 dakika sonra kapıdaydılar. Çok hızlı ve profesyonel bir ekip. Kesinlikle tavsiye ediyorum!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">AY</div>
+                        <div class="review-author-info">
+                            <h4>Ahmet Yılmaz</h4>
+                            <span>Kadıköy, İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="quote-icon">"</div>
+                    <div class="review-stars">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="review-text">"Ofisimizde yaşadığımız elektrik kesintisini çok kısa sürede çözdüler. Fiyatları gayet makul. Kredi kartı ile ödeme yapabilmek de büyük kolaylık."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">FK</div>
+                        <div class="review-author-info">
+                            <h4>Fatma Kaya</h4>
+                            <span>Şişli, İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="quote-icon">"</div>
+                    <div class="review-stars">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="review-text">"Evimizdeki komple elektrik tesisatını yenilediler. Çok temiz ve düzenli çalışıyorlar. İşçilik garantisi de verdiler. Mükemmel hizmet!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MÖ</div>
+                        <div class="review-author-info">
+                            <h4>Mehmet Özdemir</h4>
+                            <span>Beşiktaş, İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SSS ===== -->
+    <section class="section faq" id="sss">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">❓ Sıkça Sorulan Sorular</div>
+                <h2 class="section-title">Merak <span class="accent">Ettikleriniz</span></h2>
+                <p class="section-desc">Hizmetlerimizle ilgili en çok sorulan soruların yanıtları.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Gerçekten 7/24 hizmet veriyor musunuz?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, 7 gün 24 saat hizmet veriyoruz. Gece, gündüz, hafta sonu veya resmi tatillerde bile aradığınızda en kısa sürede ekibimiz adresinize gelir.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Hangi bölgelere hizmet veriyorsunuz?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>İstanbul'un Avrupa ve Anadolu yakası dahil olmak üzere tüm ilçelerine hizmet vermekteyiz. Gezici servis araçlarımızla 30 dakika içinde adresinize ulaşırız.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Fiyatlarınız nasıl belirleniyor?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Fiyatlarımız yapılacak işe göre belirlenir. Adresinize gelen ustamız arızayı tespit ettikten sonra size net bir fiyat bilgisi verir. Onayınız olmadan herhangi bir işlem yapılmaz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Kredi kartı ile ödeme yapabilir miyim?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, nakit ödemenin yanı sıra kredi kartı ve banka kartıyla kapıda ödeme imkanı sunuyoruz. Ayrıca taksit seçeneklerimiz de mevcuttur.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>İşçilik garantisi veriyor musunuz?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, yaptığımız tüm işlere %100 işçilik garantisi veriyoruz. Garanti süresi içinde aynı arıza tekrar ederse ücretsiz olarak tekrar servis sağlarız.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Elektrik arızası için ne kadar sürede gelirsiniz?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Acil durumlarda ortalama 15-30 dakika içinde adresinize ulaşırız. İstanbul trafiğine göre bu süre değişkenlik gösterebilir ancak en hızlı şekilde müdahale etmek için çalışırız.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Elektrik Arızanız mı Var?<br><span class="accent">Hemen Bizi Arayın!</span></h2>
+            <p>7/24 acil servisimizle en kısa sürede kapınızdayız. Profesyonel ekibimiz sizi bekliyor.</p>
+            <div class="cta-buttons">
+                <a href="tel:05468172735" class="btn-call">
+                    <span class="phone-ring">📞</span>
+                    Hemen Ara: 0546 817 27 35
+                </a>
+                <a href="https://wa.me/905468172735" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp Destek
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>⚡ İstanbul Acil Elektrikçi</h3>
+                    <p>İstanbul'un tüm ilçelerine 7/24 acil elektrik arıza servisi, tesisat, aydınlatma ve bakım hizmetleri sunuyoruz. 15 yıllık deneyimimizle güvenilir ve profesyonel çözümler üretiyoruz.</p>
+                    <div class="hero-buttons" style="justify-content: flex-start;">
+                        <a href="tel:05468172735" class="btn-call" style="padding: 12px 22px; font-size: 0.9rem;">
+                            📞 0546 817 27 35
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Hizmetlerimiz</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hizmetler">› Elektrik Tesisat</a></li>
+                        <li><a href="#hizmetler">› Sigorta & Şalter</a></li>
+                        <li><a href="#hizmetler">› LED Aydınlatma</a></li>
+                        <li><a href="#hizmetler">› İnternet Kablosu</a></li>
+                        <li><a href="#hizmetler">› Priz & Anahtar</a></li>
+                        <li><a href="#hizmetler">› Acil Arıza</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>İletişim</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:05468172735">📞 0546 817 27 35</a></li>
+                        <li><a href="https://wa.me/905468172735" target="_blank">💬 WhatsApp Destek</a></li>
+                        <li><a href="#">📍 İstanbul, Türkiye</a></li>
+                        <li><a href="#">🕐 7/24 Hizmet</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 İstanbul Acil Elektrikçi. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== FIXED MOBILE BUTTONS ===== -->
+    <div class="fixed-buttons">
+        <a href="tel:05468172735" class="fixed-btn fixed-btn-call">
+            📞 Hemen Ara
+        </a>
+        <a href="https://wa.me/905468172735" target="_blank" rel="noopener noreferrer" class="fixed-btn fixed-btn-whatsapp">
+            💬 WhatsApp
+        </a>
+    </div>
+
+    <!-- ===== FLOATING WHATSAPP (DESKTOP) ===== -->
+    <a href="https://wa.me/905468172735" target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="WhatsApp ile İletişim">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== HERO SLIDER =====
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                showSlide(parseInt(dot.dataset.slide));
+                startSlider();
+            });
+        });
+
+        startSlider();
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(element) {
+            const item = element.closest('.faq-item');
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .service-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== COUNTER ANIMATION =====
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.dataset.count);
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.textContent = Math.floor(current).toLocaleString('tr-TR');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target.toLocaleString('tr-TR') + (target === 100 ? '%' : '+');
+                            }
+                        };
+                        requestAnimationFrame(updateCounter);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        counterObserver.observe(document.querySelector('.stats-bar'));
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
